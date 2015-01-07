@@ -23,7 +23,7 @@ page.search('table.MsoNormalTable table tr').each do |co|
       company_name: co.search('td')[1].text.squeeze(' '),
       officer_title: officer_title.squeeze(' '),
       officer_name: officer_name.squeeze(' '),
-      hq_address: co.search('td')[4].text.split("\r\n").join(',').squeeze(' ').gsub(' ,', ''),
+      hq_address: co.search('td')[4].text.split("\r\n").join(',').squeeze(' ,').gsub(' ,', ''),
       telephone: telephone,
       fax: fax,
       address: address,
