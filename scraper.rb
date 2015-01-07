@@ -16,7 +16,7 @@ page.search('table.MsoNormalTable table tr').each do |co|
     telephone = telephone_line && telephone_line.gsub('Tel:', '').strip.squeeze(' ')
     fax_line = contact_parts.detect {|s| s.match(/Fax:/i)}
     fax = fax_line && fax_line.gsub('Fax:', '').strip.squeeze(' ')
-    address_parts = contact_parts.reject {|s| s.match(/(fax|tel|www)/i)}
+    address_parts = contact_parts.reject {|s| s.match(/(fax|tel|www|\+)/i)}
     address = address_parts.join(', ').strip.squeeze(' ,').gsub(/(,|;)\Z/, '')
 
     data = {
