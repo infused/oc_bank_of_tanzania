@@ -6,7 +6,7 @@ require 'turbotlib'
 
 url = 'http://www.bot-tz.org/BankingSupervision/RegisteredBanks.asp'
 
-agent = Mechanize.new
+agent = Mechanize.new { |m| m.ssl_version, m.verify_mode = 'SSLv3', OpenSSL::SSL::VERIFY_NONE }
 page = agent.get(url)
 page.search('table.MsoNormalTable table tr').each do |co|
   if co.search('td')[0].text.to_i > 0
